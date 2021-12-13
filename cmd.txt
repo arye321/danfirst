@@ -1,0 +1,1019 @@
+
+django.db.utils.OperationalError: no such table: CandidateFinder_skill
+
+now exiting InteractiveConsole...
+PS E:\I am a programmer\dan work\danfirst> python manage.py makemigrations
+No changes detected
+PS E:\I am a programmer\dan work\danfirst> python .\manage.py shell       
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 22:45:29) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> ^Z
+
+now exiting InteractiveConsole...
+PS E:\I am a programmer\dan work\danfirst> python manage.py migrate       
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  No migrations to apply.
+PS E:\I am a programmer\dan work\danfirst> python .\manage.py shell       
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 22:45:29) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from CandidateFinder.models import * 
+>>> skill1 = Skill(skill = "c++")        
+>>> c = Candidate(name = "Arye Pr,title='First cand') 
+  File "<console>", line 1
+    c = Candidate(name = "Arye Pr,title='First cand')
+                                                    ^
+SyntaxError: EOL while scanning string literal
+>>> c = Candidate(name = "Arye Pr",title='First cand') 
+>>> c.save()
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: CandidateFinder_candidate
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: CandidateFinder_candidate
+>>> c = Candidate(id = None,name = "Arye Pr",title='First cand')  
+>>> c.save()
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: CandidateFinder_candidate
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\python3.8\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: CandidateFinder_candidate
+>>> ^Z
+now exiting InteractiveConsole...
+PS E:\I am a programmer\dan work\danfirst> python manage.py makemigrations
+No changes detected
+PS E:\I am a programmer\dan work\danfirst> python manage.py makemigrations .\CandidateFinder\
+No installed app with label '.\CandidateFinder\'.
+PS E:\I am a programmer\dan work\danfirst> python manage.py makemigrations CandidateFinder   
+Migrations for 'CandidateFinder':
+  CandidateFinder\migrations\0001_initial.py
+    - Create model Skill
+    - Create model Job
+    - Create model Candidate
+PS E:\I am a programmer\dan work\danfirst> python manage.py migrate CandidateFinder
+Operations to perform:
+  Apply all migrations: CandidateFinder
+Running migrations:
+  Applying CandidateFinder.0001_initial... OK
+PS E:\I am a programmer\dan work\danfirst> python .\manage.py shell
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 22:45:29) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from CandidateFinder.models import *               
+>>> c = Candidate(name = "Arye Pr,title='First cand')
+  File "<console>", line 1
+    c = Candidate(name = "Arye Pr,title='First cand')
+SyntaxError: EOL while scanning string literal
+>>> c = Candidate(name = "Arye Pr",title='First cand')
+>>> c = Candidate(id = None,name = "Arye Pr",title='First cand')
+>>> c = Candidate(name = "Arye Pr",title='First cand')
+>>> c.save()
+>>> c
+<Candidate: Arye Pr>
+>>> c.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Candidate' object has no attribute 'all'
+>>> c.save()
+KeyboardInterrupt
+>>> ^Z
+
+now exiting InteractiveConsole...
+PS E:\I am a programmer\dan work\danfirst> python .\manage.py shell
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 22:45:29) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> exec(open('add.py').read())                        
+>>> candidate1
+<Candidate: Arye Pr>
+>>> Candidate.objects
+<django.db.models.manager.Manager object at 0x04B1CF28>
+>>> Candidate.objects[0]
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'Manager' object is not subscriptable
+>>> Candidate.objects.1 
+  File "<console>", line 1
+    Candidate.objects.1
+                     ^
+SyntaxError: invalid syntax
+>>> Candidate.objects.0
+  File "<console>", line 1
+    Candidate.objects.0
+                     ^
+SyntaxError: invalid syntax
+>>> Candidate.objects.1
+  File "<console>", line 1
+    Candidate.objects.1
+                     ^
+SyntaxError: invalid syntax
+>>> Candidate.objects.id
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'id'
+>>> Candidate.objects   
+<django.db.models.manager.Manager object at 0x04B1CF28>
+>>> Candidate.objects.all()
+<QuerySet [<Candidate: Arye Pr>]>
+>>> Skill.objects.all()     
+<QuerySet [<Skill: c++>, <Skill: javascript>, <Skill: react>]>
+>>> Skill.objects.all()[0]
+<Skill: c++>
+>>> Skill.objects.all()[0].id
+1
+>>> Skill.objects.all()[1].id 
+2
+>>> Skill.objects.all()[3].id 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 318, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+>>> Skill.objects.all()[2].id 
+3
+>>> type(Skill.objects.all()[2])
+<class 'CandidateFinder.models.Skill'>
+>>> exec(open('candidatesAdd.py').read()) 
+>>> Candidate.objects.all()      
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Daniel Pr>]>
+>>> Candidate.objects.all()[1].skills.all()
+<QuerySet [<Skill: c++>]>
+>>> exec(open('candidatesAdd2.py').read()) 
+>>> Candidate.objects.all()[2].skills.all() 
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> Candidate.objects.all()[2]              
+<Candidate: Yonata Agever>
+>>> Candidate.objects.all()                
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Daniel Pr>, <Candidate: Yonata Agever>]>
+>>> Candidate.objects.all()[0].skills.all()
+<QuerySet []>
+>>> Candidate.objects.all()[0].skills.add(Skill.objects.all()[1])
+>>> Candidate.objects.all()
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Daniel Pr>, <Candidate: Yonata Agever>]>
+>>> Candidate.objects.all()[0].skills.all() 
+<QuerySet [<Skill: javascript>]>
+>>> exec(open('addjobs.py').read())         
+>>> Job.objects.all()       
+<QuerySet [<Job: js + react>]>
+>>> Job.objects.all()[0].skills.all()
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> Candidate.objects.filter(name='Dan')   
+<QuerySet []>
+>>> Candidate.objects.filter(name='Daniel pr') 
+<QuerySet []>
+>>> Candidate.objects.filter(name='Daniel Pr') 
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Cadidate.objects.filter(skill='c++')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Cadidate' is not defined
+>>> Candidate.objects.filter(skill='c++') 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1286, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1112, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'skill' into field. Choices are: id, name, skills, title
+>>> Candidate.objects.filter(skills='c++') 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'c++'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'c++'.
+>>> Candidate.objects.filter(skill='c++')  
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1286, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1112, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'skill' into field. Choices are: id, name, skills, title
+>>> Candidate.objects.filter(skills='c++') 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'c++'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'c++'.
+>>> Candidate.objects.filter(skills=F('c++')) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'F' is not defined
+>>> Candidate.objects.filter(skills=F('c++'))
+KeyboardInterrupt
+>>> Candidate.objects.filter(skills=F('c++'))
+KeyboardInterrupt
+>>> from django.db.models import F
+>>> Candidate.objects.filter(skills=F('c++'))
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1295, in build_filter
+    value = self.resolve_lookup_value(value, can_reuse, allow_joins)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1087, in resolve_lookup_value
+    value = value.resolve_expression(
+  File "C:\python3.8\lib\site-packages\django\db\models\expressions.py", line 578, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1756, in resolve_ref
+    join_info = self.setup_joins(field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1625, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'c++' into field. Choices are: id, name, skills, title
+>>> skill1                                   
+<Skill: c++>
+>>> type(skill1)
+<class 'CandidateFinder.models.Skill'>
+>>> Skill.objects.all()[0] == skill1
+True
+>>> skill1.id
+1
+>>> Candidate.objects.filter(skill__skill=skill1) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1286, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1112, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'skill' into field. Choices are: id, name, skills, title
+>>> Candidate.objects.filter(skills=skill1)       
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Candidate.objects.filter(skills=skill2) 
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> skill1
+<Skill: c++>
+>>> skill2 
+<Skill: javascript>
+>>> Candidate.objects.filter(skills=skill1) 
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Candidate.objects.filter(skills=skill2)       
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> Job.objects.all()[0]                       
+<Job: js + react>
+>>> Job.objects.all()[0].skills.all()          
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> Job.objects.all()[0].skills.all()  
+KeyboardInterrupt
+>>> Candidate.objects.filter(skills=Job.objects.all()[0].skills.all()) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 256, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 528, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\where.py", line 81, in as_sql
+    sql, params = compiler.compile(child)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 132, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 315, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 194, in as_sql
+    rhs_sql, rhs_params = self.process_rhs(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 297, in process_rhs
+    raise ValueError(
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+>>> Candidate.objects.filter(skills=Job.objects.all()[0].skills.all())
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 256, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 528, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\where.py", line 81, in as_sql
+    sql, params = compiler.compile(child)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 132, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 315, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 194, in as_sql
+    rhs_sql, rhs_params = self.process_rhs(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 297, in process_rhs
+    raise ValueError(
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+>>> Candidate.objects.filter(skills=skill1,skill2)                     
+  File "<console>", line 1
+SyntaxError: positional argument follows keyword argument
+>>> Candidate.objects.filter(skills=(skill1,skill2)) 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Skill'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <Skill: c++>.
+>>> Candidate.objects.filter(skills=[skill1,skill2]) 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [<Skill: c++>, <Skill: javascript>].
+>>> Candidate.objects.filter(skills=skill1)        
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Candidate.objects.filter(skills=[skill2])        
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [<Skill: javascript>].
+>>> skill2                                   
+<Skill: javascript>
+>>> Candidate.objects.filter(skills=skill2)   
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> Group.objects.filter(skills=skill1).filter(skills=skill2)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Group' is not defined
+>>> Candidate.objects.filter(skills=skill1).filter(skills=skill2)
+<QuerySet []>
+>>> Candidate.objects.filter(skills=skill2).filter(skills=skill3) 
+<QuerySet [<Candidate: Yonata Agever>]>
+>>> Candidate.objects.filter(skills=[skill1])                    
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [<Skill: c++>].
+>>> Candidate.objects.filter(skills=['',skill]) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'skill' is not defined
+>>> Candidate.objects.filter(skills=['',skill1]) 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got ['', <Skill: c++>].
+>>> Candidate.objects.filter(skills=[1,skill1])  
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1193, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [1, <Skill: c++>].
+>>> Candidate.objects.filter(pk__skills=[skill1])     
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1347, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1187, in build_lookup
+    lhs = self.try_transform(lhs, lookup_name)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1226, in try_transform
+    raise FieldError(
+django.core.exceptions.FieldError: Unsupported lookup 'skills' for BigAutoField or join on the field not permitted.
+>>> Candidate.objects.filter(pk=1)                
+<QuerySet [<Candidate: Arye Pr>]>
+>>> Candidate.objects.filter(pk=2) 
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Candidate.objects.filter(pk=3) 
+<QuerySet [<Candidate: Yonata Agever>]>
+>>> Candidate.objects.filter(id=3) 
+<QuerySet [<Candidate: Yonata Agever>]>
+>>> Candidate.objects.count()     
+3
+>>> from django.db.models import Count
+>>> Candidate.objects.filter(skills=skill1)                       
+<QuerySet [<Candidate: Daniel Pr>]>
+>>> Candidate.objects.filter(skills=skill2) 
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> Candidate.objects.annotate(skills=skill2) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1091, in annotate
+    return self._annotate(args, kwargs, select=True)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1101, in _annotate
+    self._validate_values_are_expressions(args + tuple(kwargs.values()), method_name='annotate')
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1389, in _validate_values_are_expressions
+    raise TypeError(
+TypeError: QuerySet.annotate() received non-expression(s): javascript.
+>>> Candidate.objects.annotate(num_can=Count(skill2))        
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 108, in debug_sql
+    yield
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.InterfaceError: Error binding parameter 0 - probably unsupported type.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 256, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\python3.8\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 113, in debug_sql
+    sql = self.db.ops.last_executed_query(self.cursor, sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\operations.py", line 159, in last_executed_query
+    params = self._quote_params_for_last_executed_query(params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\operations.py", line 148, in _quote_params_for_last_executed_query
+    return cursor.execute(sql, params).fetchone()
+sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
+>>> Candidate.objects.annotate(num_can=Count(skill=skill2)) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: __init__() missing 1 required positional argument: 'expression'
+>>> Candidate.objects.annotate(num_can=Count('c++'))        
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1091, in annotate
+    return self._annotate(args, kwargs, select=True)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1130, in _annotate
+    clone.query.add_annotation(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1039, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None,
+  File "C:\python3.8\lib\site-packages\django\db\models\aggregates.py", line 47, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "C:\python3.8\lib\site-packages\django\db\models\expressions.py", line 678, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "C:\python3.8\lib\site-packages\django\db\models\expressions.py", line 578, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1756, in resolve_ref
+    join_info = self.setup_joins(field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1625, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'c++' into field. Choices are: id, name, skills, title
+>>> Candidate.objects.annotate(num_can=Count('skill')) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1091, in annotate
+    return self._annotate(args, kwargs, select=True)
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1130, in _annotate
+    clone.query.add_annotation(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1039, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None,
+  File "C:\python3.8\lib\site-packages\django\db\models\aggregates.py", line 47, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "C:\python3.8\lib\site-packages\django\db\models\expressions.py", line 678, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "C:\python3.8\lib\site-packages\django\db\models\expressions.py", line 578, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1756, in resolve_ref
+    join_info = self.setup_joins(field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1625, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\query.py", line 1539, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'skill' into field. Choices are: id, name, skills, title
+>>> Candidate.objects.annotate(num_can=Count('skills')) 
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Daniel Pr>, <Candidate: Yonata Agever>]>
+>>> Candidate.objects.annotate(num_can=Count('skills'))[0]
+<Candidate: Arye Pr>
+>>> Candidate.objects.annotate(num_can=Count('skills'))[2].num_can
+2
+>>> Candidate.objects.annotate(num_can=Count('skills'))[1].num_can 
+1
+>>> Candidate.objects.annotate(num_can=Count('skills'))[0].num_can 
+1
+>>> Candidate.objects.filter(skills=skill2)                 
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> Candidate.objects.filter(skills=Job.objects.all()[0].skills.all())
+KeyboardInterrupt
+>>> Job.objects.all()[0].skills.all()
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> a = Job.objects.all()[0].skills.all()
+>>> a
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> Candidate.objects.filter(skills=a)      
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 256, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 528, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\where.py", line 81, in as_sql
+    sql, params = compiler.compile(child)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\fields\related_lookups.py", line 132, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 315, in as_sql
+    return super().as_sql(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 194, in as_sql
+    rhs_sql, rhs_params = self.process_rhs(compiler, connection)
+  File "C:\python3.8\lib\site-packages\django\db\models\lookups.py", line 297, in process_rhs
+    raise ValueError(
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+>>> a                                       
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> b = 'l'
+>>> b |= 'd'
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: unsupported operand type(s) for |=: 'str' and 'str'
+>>> b
+'l'
+>>> a = Job.objects.all()[0].skills.all()   
+>>> a
+<QuerySet [<Skill: javascript>, <Skill: react>]>
+>>> Candidate.objects.filter(skills__in=a) 
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>, <Candidate: Yonata Agever>]>
+>>> Candidate.objects.annotate(num_can=Count('skills'))           
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Daniel Pr>, <Candidate: Yonata Agever>]>
+>>> Candidate.objects.annotate(num_can=Count(Candidate.objects.filter(skills__in=a)  )) 
+Traceback (most recent call last):
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: sub-select returns 3 columns - expected 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 256, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\python3.8\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\python3.8\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\python3.8\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\python3.8\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: sub-select returns 3 columns - expected 1
+>>> Candidate.objects.annotate(num_can=Count('skills'))
+KeyboardInterrupt
+>>> Candidate.objects.annotate(num_can=Count(Candidate.objects.filter(skills__in=a)  )) 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> Candidate.objects.filter(skills__in=a)
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>, <Candidate: Yonata Agever>]>
+>>> res = Candidate.objects.filter(skills__in=a) 
+>>> import collections
+>>> cnt = collections.Counter()
+>>> res.most_common()          
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'most_common'
+>>> Candidate.objects.filter(skills__in=a)
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> res 
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>, <Candidate: Yonata Agever>]>
+>>> res.objects.annotate(Count('name'))  
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'objects'
+>>> res
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>, <Candidate: Yonata Agever>]>
+>>> res[0]  
+<Candidate: Yonata Agever>
+>>> res[0].name
+'Yonata Agever'
+>>> res.annotate(Count('name'))         
+<QuerySet [<Candidate: Arye Pr>, <Candidate: Yonata Agever>]>
+>>> res.objects.annotate(cnt = Count('name')).order_by('-cnt')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'objects'
+>>> res.objects.annotate(cnt = Count('name')).order_by('-cnt')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'objects'
+>>> res.annotate(cnt = Count('name')).order_by('-cnt')         
+<QuerySet [<Candidate: Yonata Agever>, <Candidate: Arye Pr>]>
+>>> res.annotate(cnt = Count('name')).order_by('-cnt')
+KeyboardInterrupt
+>>> res.annotate(cnt = Count('name')).order_by('-cnt'   
+KeyboardInterrupt
+>>> candidate
+KeyboardInterrupt
+>>> 
